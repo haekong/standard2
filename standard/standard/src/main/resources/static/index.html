@@ -1,32 +1,39 @@
 <!doctype html>
 <html lang="kor" class="no-js">
 <head>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<meta charset=utf-8 />
+
+	<!--파일 첨부-->
+	<script src="./js/upload.js"></script>
 	<style>
-		#btn1{
-			border-radius: 20px;
-			margin: 50px;
+		#filebox label {
+			display: inline-block;
+			padding: .5em .75em;
+			color: #999;
+			font-size:inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #fdfdfd;
+			cursor: pointer;
+			border: 1px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			border-radius: .25em;
 		}
-		#btn2{
-			border-radius: 20px;
-			margin: 50px;
-		}
-		#btn3{
-			border-radius: 20px;
-			margin: 50px;
+		#filebox input[type="file"] {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+			border: 0;
 		}
 
-		#btn_group button{
-			font-size: 100px;
-			border:0;
-			outline: 0;
-			color:white;
-			padding: 5px;
-			background-color:transparent;  border:0px transparent solid;
-		}
-		#btn_group button:hover{
-			color:#6cac70;
-			background-color: #acdb34;
-		}
 	</style>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,25 +43,48 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<script src="https://kit.fontawesome.com/dfda7a7558.js" crossorigin="anonymous"></script>
 	<title>Secondary Expandable Menu</title>
-	<script src="{{ url_for('static', filename='upload.js') }}"></script>
 </head>
 <body>
-<input type="file" accept="image/*;capture=camera"/>
 <header>
-	<nav id="cd-top-nav">
-		<ul>
-			<li><a href="#0">Tour</a></li>
-			<li><a href="#0">Login</a></li>
-		</ul>
-	</nav>
 	<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
 </header>
 <main class="cd-main-content">
-	<form action="http://49.50.161.177:80/uploader" method="POST" enctype="multipart/form-data">
-		<input type='file' name='file' onchange="readURL(this);" />
-		<img id="blah" src="#" alt="your image" />
-		<button type="submit">Submit & predict</button>
-	</form>
+
+
+		<div class="s-heading">
+<!--			&lt;!&ndash;	파일첨부&ndash;&gt;-->
+<!--			<form action="http://49.50.161.177:80/uploader" method="POST" enctype="multipart/form-data">-->
+<!--				<input type='file' name='file' onchange="readURL(this);" />-->
+<!--				<img id="blah" src="#" alt="your image" />-->
+<!--				<button type="submit">Submit & predict</button>-->
+<!--			</form>-->
+<!--		</div>-->
+		<!--services-box-container------------------->
+		<div class="s-box-container">
+			<form action="http://49.50.161.177:80/uploader" method="POST" enctype="multipart/form-data">
+
+			<!--service-box-1---------------->
+			<div class="s-box">
+				<!--top-bar-------->
+				<div class="bar"></div>
+				<!--img---------->
+				<img id="blah" src="#" alt="" />
+				<!--services-name---------->
+
+				<!--details------>
+				<div class="filebox">
+					<label for="ex_file">업로드</label>
+					<input type='file' class id = "ex_file" name='file' accept="image/*,capture=camera" onchange="readURL(this);" />
+					<input type='text' id = "ex_file" name='key' value="1" style="display:none"/>
+				</div>
+			</div>
+				<center>
+					<button type="submit" class="s-btn">제출하기</button>
+				</center>
+			</form>
+		</div>
+	</div>
+	<!--	파일첨부-->
 	<div id="container">
 		<center>
 	<div id ="btn_group">
@@ -128,5 +158,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>
